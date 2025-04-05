@@ -5,7 +5,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # Enable CORS for REST (if needed)
 
-# Enable CORS for WebSockets
 socketio = SocketIO(app, cors_allowed_origins="https://socket-chat-frontend-gold.vercel.app") 
 
 @app.route('/')
