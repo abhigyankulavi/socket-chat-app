@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, send
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for REST (if needed)
+CORS(app)  
 
 socketio = SocketIO(app, cors_allowed_origins="https://socket-chat-frontend-gold.vercel.app") 
 
