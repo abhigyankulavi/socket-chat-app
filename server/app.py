@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="https://socket-chat-frontend-gold.vercel.app")
 
-AES_SECRET = b'ThisIsASecretKey123'  # 16 bytes for AES-128
+AES_SECRET = b'ThisIsASecretKey123'  
 
 def pad(s): return s + (16 - len(s) % 16) * chr(16 - len(s) % 16)
 def unpad(s): return s[:-ord(s[len(s)-1:])]
@@ -35,7 +35,6 @@ def handle_message(msg):
     print(f"[RECEIVED] {msg}")
     try:
         data = json.loads(msg)
-        # Forward as-is (server stays dumb)
         send(msg, broadcast=True)
         print("[SENT]")
     except Exception as e:
